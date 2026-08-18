@@ -1,0 +1,26 @@
+flowchart LR
+    subgraph Arduino["Arduino Uno"]
+        P13["Pin 13 (Bit 0 / LSB)"]
+        P12["Pin 12 (Bit 1)"]
+        P11["Pin 11 (Bit 2)"]
+        P10["Pin 10 (Bit 3 / MSB)"]
+        GND["GND Pin"]
+    end
+    subgraph Resistors["Current Limiting (330Ω)"]
+        R1["Resistor 1 (330Ω)"]
+        R2["Resistor 2 (330Ω)"]
+        R3["Resistor 3 (330Ω)"]
+        R4["Resistor 4 (330Ω)"]
+    end
+    subgraph LEDs["LEDs (Anode (+) to Cathode (-))"]
+        LED1["LED 1 (Bit 0 / LSB)"]
+        LED2["LED 2 (Bit 1)"]
+        LED3["LED 3 (Bit 2)"]
+        LED4["LED 4 (Bit 3 / MSB)"]
+    end
+    GND_RAIL[("Breadboard GND Rail")]
+    P13 -->|Signal| R1 --> LED1 --> GND_RAIL
+    P12 -->|Signal| R2 --> LED2 --> GND_RAIL
+    P11 -->|Signal| R3 --> LED3 --> GND_RAIL
+    P10 -->|Signal| R4 --> LED4 --> GND_RAIL
+    GND_RAIL -->|Return Path| GND
