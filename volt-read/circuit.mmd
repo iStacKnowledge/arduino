@@ -1,0 +1,16 @@
+flowchart LR
+    subgraph Arduino["Arduino (Uno / Nano / Mega)"]
+        pin5V["5V (Power Output)"]
+        pinA2["Analog Input (A2)"]
+        pinGND["GND (Ground)"]
+    end
+
+    subgraph Pot["Potentiometer (10kΩ)"]
+        p1["Terminal 1 (VCC)"]
+        pWiper["Center Wiper (Signal)"]
+        p2["Terminal 2 (GND)"]
+    end
+
+    pin5V -->|5V| p1
+    pWiper -->|0 - 5V Variable Voltage| pinA2
+    p2 -->|Ground| pinGND
