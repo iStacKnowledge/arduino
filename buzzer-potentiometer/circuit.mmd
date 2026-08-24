@@ -1,0 +1,28 @@
+flowchart TD
+    subgraph ARD[" Arduino Board "]
+        PIN_5V["5V (VCC)"]
+        PIN_GND1["GND"]
+        PIN_GND2["GND"]
+        PIN_A3["Analog Pin A3 (potPin)"]
+        PIN_D8["Digital Pin 8 (buzzPin)"]
+    end
+
+    subgraph POT[" Rotary Potentiometer (10kΩ) "]
+        POT_VCC["Terminal 1 (VCC)"]
+        POT_WIPER["Terminal 2 (Wiper / Signal)"]
+        POT_GND["Terminal 3 (GND)"]
+    end
+
+    subgraph BUZZ[" 5V Buzzer "]
+        BUZZ_POS["Anode (+) / Long Leg"]
+        BUZZ_NEG["Cathode (-) / Short Leg"]
+    end
+
+    %% Power & Ground Connections
+    PIN_5V -->|"5V Power Rail"| POT_VCC
+    PIN_GND1 -->|"Ground Rail"| POT_GND
+    PIN_GND2 -->|"Ground Return"| BUZZ_NEG
+
+    %% Signal Connections
+    POT_WIPER -->|"Analog Voltage (0-5V)"| PIN_A3
+    PIN_D8 -->|"Digital Trigger (HIGH/LOW)"| BUZZ_POS

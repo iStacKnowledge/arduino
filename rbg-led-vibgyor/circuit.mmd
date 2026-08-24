@@ -1,0 +1,25 @@
+flowchart LR
+    subgraph Arduino["Arduino Board"]
+        D3["Pin 3 (PWM ~)"]
+        D5["Pin 5 (PWM ~)"]
+        D6["Pin 6 (PWM ~)"]
+        GND["GND"]
+    end
+
+    subgraph Resistors["Current Limiting Resistors"]
+        R1["220Ω Resistor"]
+        R2["220Ω Resistor"]
+        R3["220Ω Resistor"]
+    end
+
+    subgraph RGB_LED["RGB LED (Common Cathode)"]
+        RED_PIN["Pin 1: Red (+)"]
+        CATH_PIN["Pin 2: Cathode (-)"]
+        GRN_PIN["Pin 3: Green (+)"]
+        BLU_PIN["Pin 4: Blue (+)"]
+    end
+
+    D3 --> R1 --> RED_PIN
+    D5 --> R2 --> GRN_PIN
+    D6 --> R3 --> BLU_PIN
+    GND --> CATH_PIN
