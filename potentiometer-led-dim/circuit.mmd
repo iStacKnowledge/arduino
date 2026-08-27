@@ -1,0 +1,24 @@
+flowchart LR
+    subgraph Arduino["Arduino Board"]
+        VCC["5V Pin"]
+        GND["GND Pin"]
+        A2["Analog In A2"]
+        D11["PWM Pin ~11"]
+    end
+
+    subgraph Potentiometer["10kΩ Potentiometer"]
+        P1["Pin 1 (VCC)"]
+        Wiper["Pin 2 (Wiper)"]
+        P3["Pin 3 (GND)"]
+    end
+
+    subgraph LED_Circuit["LED Output Circuit"]
+        R1["220Ω Resistor"]
+        LED["LED (Green)"]
+    end
+
+    VCC --> P1
+    GND --> P3
+    Wiper --> A2
+
+    D11 --> R1 --> LED --> GND

@@ -49,6 +49,7 @@ Most experiments in this repository use standard starter kit components:
 | :--- | :--- | :--- |
 | [**binary-led**](./binary-led/) | 4-bit binary counter displaying 0 to 15 across 4 LEDs. | Digital outputs, binary logic, `digitalWrite()`, bitwise operations. |
 | [**buzzer-potentiometer**](./buzzer-potentiometer/) | Threshold-triggered buzzer alarm controlled via analog potentiometer. | Analog input sensing, `analogRead()`, digital output threshold triggering. |
+| [**potentiometer-led-dim**](./potentiometer-led-dim/) | LED brightness / dimmer control using rotary potentiometer. | ADC sampling (`analogRead`), PWM duty cycle modulation (`analogWrite`), Serial logging. |
 | [**rbg-led-vibgyor**](./rbg-led-vibgyor/) | Color cycling an RGB LED through the VIBGYOR rainbow spectrum. | Pulse Width Modulation (PWM), `analogWrite()`, color mixing. |
 | [**volt-read**](./volt-read/) | Reading analog input voltage and reporting it to the Serial Monitor. | ADC conversion, `analogRead()`, Serial communication (`Serial.print`). |
 
@@ -58,3 +59,10 @@ Most experiments in this repository use standard starter kit components:
 
 - These projects are basic hobby experiments created for self-learning and experimentation.
 - Always double-check resistor values and polarities (especially for LEDs and external components) before powering your board to prevent component damage.
+
+---
+
+## 🙏 Acknowledgments & Special Thanks
+
+A huge thank you to **Paul McWhorter** ([@paulmcwhorter](https://www.youtube.com/@paulmcwhorter)) — learned everything from his incredible Arduino tutorials and electronics lessons!
+
