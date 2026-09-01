@@ -1,0 +1,41 @@
+flowchart LR
+    subgraph Arduino["Arduino Board"]
+        VCC["5V (VCC)"]
+        GND["GND"]
+        A0["Analog Pin A0 (readPin)"]
+        D12["Digital Pin 12 (greenPin)"]
+        D13["Digital Pin 13 (redPin)"]
+    end
+
+    subgraph Voltage_Divider["LDR Voltage Divider"]
+        LDR["Photoresistor / LDR"]
+        R_DIV["10kΩ Fixed Resistor"]
+        JUNCTION(("A0 Node"))
+    end
+
+    subgraph Green_LED_Circuit["Green LED Indicator (Light > 400)"]
+        R_GREEN["220Ω Resistor"]
+        LED_G["Green LED (Anode -> Cathode)"]
+    end
+
+    subgraph Red_LED_Circuit["Red LED Indicator (Dark <= 400)"]
+        R_RED["220Ω Resistor"]
+        LED_R["Red LED (Anode -> Cathode)"]
+    end
+
+    %% Voltage Divider Connections
+    VCC -->|"5V Supply"| LDR
+    LDR --> JUNCTION
+    JUNCTION -->|"Voltage Signal"| A0
+    JUNCTION --> R_DIV
+    R_DIV -->|"Ground Return"| GND
+
+    %% Green LED Connections
+    D12 -->|"Output HIGH (>400)"| R_GREEN
+    R_GREEN --> LED_G
+    LED_G -->|"Ground Return"| GND
+
+    %% Red LED Connections
+    D13 -->|"Output HIGH (<=400)"| R_RED
+    R_RED --> LED_R
+    LED_R -->|"Ground Return"| GND

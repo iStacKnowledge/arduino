@@ -49,6 +49,7 @@ Most experiments in this repository use standard starter kit components:
 | :--- | :--- | :--- |
 | [**binary-led**](./binary-led/) | 4-bit binary counter displaying 0 to 15 across 4 LEDs. | Digital outputs, binary logic, `digitalWrite()`, bitwise operations. |
 | [**buzzer-potentiometer**](./buzzer-potentiometer/) | Threshold-triggered buzzer alarm controlled via analog potentiometer. | Analog input sensing, `analogRead()`, digital output threshold triggering. |
+| [**photoresistor**](./photoresistor/) | Dual LED light indicator and threshold detection using a photoresistor (LDR). | Analog voltage divider, LDR sensing, `analogRead()`, digital threshold switching. |
 | [**potentiometer-led-dim**](./potentiometer-led-dim/) | LED brightness / dimmer control using rotary potentiometer. | ADC sampling (`analogRead`), PWM duty cycle modulation (`analogWrite`), Serial logging. |
 | [**rbg-led-vibgyor**](./rbg-led-vibgyor/) | Color cycling an RGB LED through the VIBGYOR rainbow spectrum. | Pulse Width Modulation (PWM), `analogWrite()`, color mixing. |
 | [**volt-read**](./volt-read/) | Reading analog input voltage and reporting it to the Serial Monitor. | ADC conversion, `analogRead()`, Serial communication (`Serial.print`). |
