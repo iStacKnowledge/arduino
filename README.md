@@ -53,6 +53,7 @@ Most experiments in this repository use standard starter kit components:
 | [**potentiometer-led-dim**](./potentiometer-led-dim/) | LED brightness / dimmer control using rotary potentiometer. | ADC sampling (`analogRead`), PWM duty cycle modulation (`analogWrite`), Serial logging. |
 | [**rbg-led-vibgyor**](./rbg-led-vibgyor/) | Color cycling an RGB LED through the VIBGYOR rainbow spectrum. | Pulse Width Modulation (PWM), `analogWrite()`, color mixing. |
 | [**volt-read**](./volt-read/) | Reading analog input voltage and reporting it to the Serial Monitor. | ADC conversion, `analogRead()`, Serial communication (`Serial.print`). |
+| [**pushButton-ledDim-buzzer**](./pushButton-ledDim-buzzer/) | Push button control for LED brightness and buzzer trigger. | Digital input sensing, `digitalRead()`, PWM duty cycle modulation (`analogWrite`), Serial logging. |
 
 ---
 

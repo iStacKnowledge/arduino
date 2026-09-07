@@ -1,0 +1,34 @@
+graph LR
+    subgraph Arduino_Board ["Arduino Board"]
+        PinA2["A2 (Digital Read)"]
+        PinA3["A3 (Digital Read)"]
+        Pin9["Pin 9 (PWM Output)"]
+        Pin10["Pin 10 (Digital Output)"]
+        V5["5V"]
+        GND["GND"]
+    end
+
+    subgraph Inputs ["Button Inputs (Active HIGH)"]
+        BtnPlus["➕ Plus Button"]
+        BtnMinus["➖ Minus Button"]
+        R_Pull1["10kΩ Pull-down"]
+        R_Pull2["10kΩ Pull-down"]
+    end
+
+    subgraph Outputs ["Outputs"]
+        R_LED["220Ω Resistor"]
+        LED["💡 LED"]
+        Buzzer["🔊 Buzzer"]
+    end
+
+    V5 --> BtnPlus
+    V5 --> BtnMinus
+
+    BtnPlus --> PinA2
+    PinA2 --> R_Pull1 --> GND
+
+    BtnMinus --> PinA3
+    PinA3 --> R_Pull2 --> GND
+
+    Pin9 --> R_LED --> LED --> GND
+    Pin10 --> Buzzer --> GND
