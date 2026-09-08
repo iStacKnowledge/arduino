@@ -1,0 +1,41 @@
+flowchart LR
+    subgraph Arduino["Arduino Board"]
+        A0["Analog Pin A0"]
+        D3["Digital Pin 3 (PWM)"]
+        D5["Digital Pin 5 (PWM)"]
+        D6["Digital Pin 6 (PWM)"]
+        D9["Digital Pin 9 (PWM)"]
+        VCC["5V Power"]
+        GND["Ground (GND)"]
+    end
+
+    subgraph LightSensor["LDR Sensor Circuit"]
+        LDR["Photoresistor (LDR)"]
+        R10K["10kΩ Resistor"]
+    end
+
+    subgraph RGB["RGB LED Circuit"]
+        R_Res["220Ω Resistor"]
+        G_Res["220Ω Resistor"]
+        B_Res["220Ω Resistor"]
+        LED["Common Cathode RGB LED"]
+    end
+
+    subgraph ServoSystem["Servo Motor"]
+        Servo["SG90 Servo Motor"]
+    end
+
+    VCC -->|5V Rail| LDR
+    VCC -->|5V Rail| Servo
+
+    LDR -->|Junction Node| A0
+    LDR -->|Junction Node| R10K
+    R10K --> GND
+
+    D3 --> R_Res -->|Red Anode| LED
+    D5 --> G_Res -->|Green Anode| LED
+    D6 --> B_Res -->|Blue Anode| LED
+    LED -->|Cathode| GND
+
+    D9 -->|Control Signal| Servo
+    Servo -->|GND| GND

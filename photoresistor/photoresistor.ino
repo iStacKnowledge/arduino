@@ -17,10 +17,10 @@ void loop() {
   readVal = analogRead(readPin);
   Serial.println(readVal);
   delay(dv);
-  if(readVal > 400){
+  if (readVal > 400) {
     digitalWrite(greenPin, HIGH);
     digitalWrite(redPin, LOW);
-  }else{
+  } else {
     digitalWrite(redPin, HIGH);
     digitalWrite(greenPin, LOW);
   }

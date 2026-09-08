@@ -54,6 +54,7 @@ Most experiments in this repository use standard starter kit components:
 | [**rbg-led-vibgyor**](./rbg-led-vibgyor/) | Color cycling an RGB LED through the VIBGYOR rainbow spectrum. | Pulse Width Modulation (PWM), `analogWrite()`, color mixing. |
 | [**volt-read**](./volt-read/) | Reading analog input voltage and reporting it to the Serial Monitor. | ADC conversion, `analogRead()`, Serial communication (`Serial.print`). |
 | [**pushButton-ledDim-buzzer**](./pushButton-ledDim-buzzer/) | Push button control for LED brightness and buzzer trigger. | Digital input sensing, `digitalRead()`, PWM duty cycle modulation (`analogWrite`), Serial logging. |
+| [**moving-servo-with-photoresistor**](./moving-servo-with-photoresistor/) | Moving Servo Motor controlled by Light intensity. | Servo motor control, LDR sensing, `analogRead()`, PWM duty cycle modulation (`analogWrite`), Serial logging. |
 
 ---
 
