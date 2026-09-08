@@ -1,0 +1,53 @@
+flowchart LR
+    subgraph Arduino["Arduino Board"]
+        A0["Analog Pin A0"]
+        A1["Analog Pin A1"]
+        A2["Analog Pin A2"]
+        D9["Digital Pin 9 (PWM)"]
+        D10["Digital Pin 10 (PWM)"]
+        D11["Digital Pin 11"]
+        D12["Digital Pin 12"]
+        VCC["5V Power"]
+        GND["Ground (GND)"]
+    end
+
+    subgraph Joystick["2-Axis Joystick Module"]
+        VRX["VRx (X-Axis Pot)"]
+        VRY["VRy (Y-Axis Pot)"]
+        SW["SW (Push Button)"]
+    end
+
+    subgraph ServoXSystem["Servo Motor X"]
+        ServoX["SG90 Servo X"]
+    end
+
+    subgraph ServoYSystem["Servo Motor Y"]
+        ServoY["SG90 Servo Y"]
+    end
+
+    subgraph Indicators["Buzzer & LED Indicators"]
+        Buzzer["Buzzer"]
+        Resistor["220Ω Resistor"]
+        LED["Flash LED"]
+    end
+
+    VCC -->|5V Rail| VRX
+    VCC -->|5V Rail| VRY
+    VCC -->|5V Rail| ServoX
+    VCC -->|5V Rail| ServoY
+
+    VRX -->|X Signal| A0
+    VRY -->|Y Signal| A1
+    SW -->|Switch Signal| A2
+    Joystick -->|GND| GND
+
+    D9 -->|Control Signal X| ServoX
+    D10 -->|Control Signal Y| ServoY
+    ServoX -->|GND| GND
+    ServoY -->|GND| GND
+
+    D11 -->|Buzzer Signal| Buzzer
+    Buzzer -->|GND| GND
+
+    D12 --> Resistor -->|Anode| LED
+    LED -->|Cathode| GND
